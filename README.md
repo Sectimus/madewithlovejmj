@@ -1,5 +1,5 @@
 # MadeWithLove
-## Made with Love is a A web application that makes it easy for everyday individuals to reach out and interact with ‘Made With Love’.
+## Made with Love is a a web application that makes it easy for everyday individuals to reach out and interact with ‘Made With Love’.
 
 *Made with Love started in July 2016 when we became aware of families struggling to
 feed their children during the school holidays.
