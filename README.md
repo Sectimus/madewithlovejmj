@@ -1,17 +1,6 @@
 # MadeWithLove
 ## Made with Love is a a web application that makes it easy for everyday individuals to reach out and interact with ‘Made With Love’.
 
-*Made with Love started in July 2016 when we became aware of families struggling to
-feed their children during the school holidays.
-Initially we started with donations from family and friends to make packed lunches in
-our homes and we distributed to local groups who provided care for children during
-the holidays.
-At Christmas 2016 we were able to provide 55 Christmas Hampers, to 3 local
-schools. The Hampers provide a full Christmas Dinner with all the trimmings and
-some special extras to help a family celebrate the Festive Season. Each Hamper
-costs £40. They are gift wrapped and presented to the families via the schools during
-the last week of term.*
-
 ### 2016
 *Made with Love started in July 2016 when we became aware of families struggling to
 feed their children during the school holidays.
