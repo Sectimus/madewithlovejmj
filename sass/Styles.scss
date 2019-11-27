@@ -1,103 +1,159 @@
 // compileCompressed: ../css/$1.min.css
 //colours
 $lightblack: #34495e;
+$heavyblack: #2c3e50;
 $lightwhite: #ecf0f1;
-
-//media queries
-@mixin phone{
-  @media only screen and (max-width: 800px){
+$heavywhite: #bdc3c7;
+$lightgray: #95a5a6;
+$heavygray: #7f8c8d;
+$lightgreen: #2ecc71;
+$heavygreen: #27ae60; //media queries
+@mixin phone {
+  @media only screen and (max-width: 800px) {
     @content;
   }
 }
 
-*{
+* {
   margin: 0;
   padding: 0;
   font-family: "montserrat",sans-serif;
 }
-.header{
-  .logo{
-    line-height: 100px;
-    float: left;
-    text-transform: uppercase;
-  }
-  height: 100px;
-  background: #34495e;
-  padding: 0 20px;
-  color: #fff;
+@import "navigation.scss"; //LANDING PAGE
 
-  .menu{
-    float: right;
-    line-height: 100px;
-  }
-  a{
-    color: #fff;
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 0 10px;
-    transition: 0.4s;
-    &:hover{
-      color: #3498db !important;
+.slidershow {
+  //  border: 5px solid red;
+  height: 40vw;
+  max-height: 300px;
+  background-color: $lightwhite;
+  box-shadow: 0 8px 6px -6px black;
+  margin-bottom: 20px;
+
+  .slides {
+    display: relative;
+    margin: 0 auto;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    overflow: hidden;
+
+    img {
+      object-fit: fill;
+      position: relative;
+      top: 25%;
+      transform: translateY(-25%);
+      background-position: center;
+      display: block;
+      margin: 0 auto;
+      vertical-align: middle;
+      text-align: center;
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      transition: 0.5s;
     }
   }
-  .show-menu-btn{
-    float: right;
-    a{
-      line-height: 100px;
+
+  .navigation {
+    position: relative;
+    text-align: center;
+    bottom: 30px;
+
+    input[name="r"] {
+      display: none;
+    }
+
+    input[type="radio"] {
+      &:checked + label {
+        background: darken($heavyblack, 10%);
+      }
+    }
+
+    label.bar {
+      position: relative;
+      display: inline-block;
+      margin: 0;
+      width: 40px;
+      height: 20px;
+      overflow: hidden;
+      background: $lightgray;
+      transition: 0.2s;
+      cursor: pointer;
+      border: 2px solid $heavygray;
+
+      &:hover {
+        background: $lightblack;
+      }
     }
   }
-  #chk{
-    position: absolute;
-    visibility: hidden;
-    z-index: -1111;
-  }
-}
-.show-menu-btn,.hide-menu-btn{
-  transition: 0.4s;
-  font-size: 30px;
-  cursor: pointer;
-  display: none;
 }
 
 
 .content{
-  padding: 0 20px;
-  img{
-    width: 100%;
-    max-width: 700px;
-    margin: 20px 0;
+  width:60%;
+  margin-left: 20%;
+  @include phone{
+    width:90%;
+    margin-left: 5%;
   }
-  p{
-    text-align: justify;
+  .donatewrapper{
+    .donate{
+      text-align: center;
+      padding: 1%;
+      position: relative;
+      display: block;
+      color: black;
+      font-size: 20px;
+      font-weight: bolder;
+      font-family: "montserrat";
+      text-decoration: none;
+      margin: 30px 0;
+      border: 2px solid $lightgreen;
+      text-transform: uppercase;
+      overflow: hidden;
+      transition: 1s all ease;
+      &::before{
+        width: 100%;
+        height: 0%;
+        transform: translate(-50%,-50%) rotate(-45deg);
+        background: $lightgreen;
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: -1;
+        transition: all 0.6s ease;
+      }
+      &:hover::before{
+        height: 2000%;
+      }
+    }
   }
-}
 
-@include phone{
-  .show-menu-btn,.hide-menu-btn{
-    display: block;
-  }
-  .menu{
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    background: #333;
-    right: -100%;
-    top: 0;
-    text-align: center;
-    padding: 80px 0;
-    line-height: normal;
-    transition: 0.7s;
-  }
-  .menu a{
-    display: block;
-    padding: 20px;
-  }
-  .hide-menu-btn{
-    position: absolute;
-    top: 40px;
-    right: 40px;
-  }
-  #chk:checked ~ .menu{
-    right: 0;
+  .overview {
+    .section {
+      margin-bottom: 30px;
+      box-shadow: 3px 3px 5px 6px #ccc;
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-bottom: 20px;
+
+      .year {
+        font-weight: bold;
+        text-align: center;
+        color: $heavyblack;
+      }
+
+      .description {
+        font-weight: 200;
+        font-size: 17px;
+        color: $lightblack;
+      }
+    }
   }
 }
