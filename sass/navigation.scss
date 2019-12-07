@@ -1,17 +1,21 @@
 .header{
+  .branding{
+    height:100%;
+    float:left;
+  }
   .logo{
-    line-height: 100px;
+    line-height: 80px;
     float: left;
     text-transform: uppercase;
   }
-  height: 100px;
-  background: $lightblack;
+  height: 80px;
+  background: $mwlred;
   padding: 0 20px;
   color: #fff;
 
   .menu{
     float: right;
-    line-height: 100px;
+    line-height: 80px;
   }
   a{
     color: #fff;
@@ -26,7 +30,7 @@
   .show-menu-btn{
     float: right;
     a{
-      line-height: 100px;
+      line-height: 80px;
     }
   }
   #chk{
