@@ -24,7 +24,7 @@
     padding: 0 10px;
     transition: 0.4s;
     &:hover{
-      color: #3498db !important;
+      color: lighten($mwlred, 20%) !important;
     }
   }
   .show-menu-btn{
