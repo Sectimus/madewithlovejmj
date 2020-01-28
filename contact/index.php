@@ -1,16 +1,30 @@
 <?php
+//execute composer generated autoloader 
+require $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['phone']) && isset($_POST['message'])){
     $name = $_POST['name'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
-    $message = $_POST['message'];
+    $message = htmlspecialchars($_POST['message'], ENT_QUOTES, 'UTF-8');
+    $body = file_get_contents($_SERVER["DOCUMENT_ROOT"].'/templates/email/staff.html');
+
+    $m = new Mustache_Engine;
+    $body = $m->render($body, array('message' => $message)); // "Hello World!"
+
+    //todo send email to staff
+    $subject = "New message recieved at " . date("d/m/Y h:i:sa");
+    $headers = "From: webmaster@example.com" . "\r\n";
+    $headers .= "From: webmaster@example.com" . "CC: somebodyelse@example.com" . "\r\n";
+    $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+
+    mail($email,$subject,$body,$headers);
 
     //todo send email to user
 
-    //todo send email to staff
-
   }
+  exit();
 }
 
 ?>
