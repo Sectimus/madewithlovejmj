@@ -8,20 +8,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
     $phone = $_POST['phone'];
     $message = htmlspecialchars($_POST['message'], ENT_QUOTES, 'UTF-8');
-    $body = file_get_contents($_SERVER["DOCUMENT_ROOT"].'/templates/email/staff.html');
+    $date = date("d/m/Y h:i:sa");
 
     $m = new Mustache_Engine;
-    $body = $m->render($body, array('message' => $message)); // "Hello World!"
+    //create the data object to pass into the mustache renderer
+    $data = array('message' => $message, 'name' => $name, 'email' => $email, 'phone' => $phone, 'date' => $date);
 
-    //todo send email to staff
-    $subject = "New message recieved at " . date("d/m/Y h:i:sa");
-    $headers = "From: webmaster@example.com" . "\r\n";
-    $headers .= "From: webmaster@example.com" . "CC: somebodyelse@example.com" . "\r\n";
+    //to staff
+    $staffbody = file_get_contents($_SERVER["DOCUMENT_ROOT"].'/templates/email/staff.html');
+    //render the html content
+    $body = $m->render($staffbody, $data);
+    //send email to staff
+    $subject = "New message recieved at " . $date;
+    //$headers = "From: webmaster@example.com" . "\r\n";
+    $headers = "Reply-To: " . $email . "\r\n";
     $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+    // TODO update staff address
+    $staffEmail = "developer.amelia-magee@outlook.com";
+    mail($staffEmail,$subject,$body,$headers);
 
+
+    //to client
+    $clientbody = file_get_contents($_SERVER["DOCUMENT_ROOT"].'/templates/email/client.html');
+    //render the html content
+    $body = $m->render($clientbody, $data);
+    //send email to client
+    $subject = "Your message to Made with Love";
+    //$headers = "From: webmaster@example.com" . "\r\n";
+    $headers = "Content-Type: text/html; charset=ISO-8859-1\r\n";
     mail($email,$subject,$body,$headers);
-
-    //todo send email to user
 
   }
   exit();
