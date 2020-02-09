@@ -51,7 +51,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/Styles.min.css">
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <script src="https://kit.fontawesome.com/38670082c8.js" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="/js/contact.js"></script>
   <title>Made With Love | Contact Us</title>
 </head>
 <body>
@@ -74,16 +77,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   <div class="content">
     <form class="contact-form" action="" id="contactform" method="post">
-      <h1>Contact Us</h1>
-      <input name="name" type="text" class="contact-form-text" placeholder="Your name" required>
-      <input name="email" type="email" class="contact-form-text" placeholder="Your email" required>
-      <input name="phone" type="tel" class="contact-form-text" placeholder="Your phone number" required>
-      <textarea class="contact-form-text" name="message" cols="30" rows="10" placeholder="Your message" required></textarea>
-      <input type="submit" class="contact-form-text" value="Send">
+    <h1>Contact Us</h1>
+    <p><small>* required</small></p>
+      <input name="name" type="text" class="contact-form-text" placeholder="Your name*" required>
+      <input name="email" type="email" class="contact-form-text" placeholder="Your email*" required>
+      <input name="phone" type="tel" class="contact-form-text" placeholder="Your phone number">
+      <textarea class="contact-form-text" name="message" cols="30" rows="10" placeholder="Your message*" required></textarea>
+      <div style="text-align: center;">
+      <div id="captcha" class="g-recaptcha" data-callback="captchaCompleteCallback" data-expired-callback="captchaExpiredCallback" data-sitekey="6LcJZ9MUAAAAAPYzh-0gvNcn_rN2lcj0FGZmYdcC" style="display: inline-block;"></div>
+      </div>
+      <input id="submit" type="submit" class="contact-form-text" value="Send" disabled>
     </form>
 
     <h1 id="thanks" style="display:none;">Thanks! <br> We will be in contact soon</h1>
   </div>
-
 </body>
 </html>
