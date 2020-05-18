@@ -1,12 +1,50 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    {% block stylesheets %}
+    {{
+      encore_entry_link_tags("app")
+    }}
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/Styles.min.css" />
+    {% endblock stylesheets %}
+    <script
+      src="https://kit.fontawesome.com/38670082c8.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>
+      {% block title %}Made With Love | Unknown {% endblock title %}
+    </title>
+  </head>
+
+  <body>
+    <div class="header">
+      <img
+        class="branding"
+        src="{{ asset('img/branding.png') }}"
+        alt="branding"
+      />
+      <h2 class="logo">Made With Love</h2>
+      <input type="checkbox" id="chk" />
+      <label for="chk" class="show-menu-btn">
+        <a class="fas fa-ellipsis-h"></a>
+      </label>
+
+      <ul class="menu">
+        <a href="/" active>Home</a>
+        <a href="/contact">Contact</a>
+        <a href="/donate">Donate</a>
+        <label for="chk" class="hide-menu-btn">
+          <a class="fas fa-times"></a>
+        </label>
+      </ul>
+    </div>
+    <div class="content">{% block content %}{% endblock content %}</div>
+  </body>
 </html>
