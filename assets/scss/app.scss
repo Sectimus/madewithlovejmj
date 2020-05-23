@@ -1,0 +1,252 @@
+// compileCompressed: ../css/$1.min.css
+//colours
+$mwlred: #e42329;
+
+$lightblack: #34495e;
+$heavyblack: #2c3e50;
+$lightwhite: #ecf0f1;
+$heavywhite: #bdc3c7;
+$lightgray: #95a5a6;
+$heavygray: #7f8c8d;
+$lightgreen: #2ecc71;
+$heavygreen: #27ae60; //media queries
+@mixin phone {
+  @media only screen and (max-width: 800px) {
+    @content;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "montserrat", sans-serif;
+}
+@import "navigation.scss"; //LANDING PAGE
+
+.slidershow {
+  //  border: 5px solid red;
+  height: 40vw;
+  max-height: 240px;
+  max-width: 100%;
+  background-color: $lightwhite;
+  box-shadow: 0 8px 6px -6px black;
+  margin-bottom: 20px;
+
+  .slides {
+    display: relative;
+    margin: 0 auto;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    overflow: hidden;
+
+    img {
+      object-fit: fill;
+      position: relative;
+      top: 25%;
+      transform: translateY(-25%);
+      background-position: center;
+      display: block;
+      margin: 0 auto;
+      vertical-align: middle;
+      text-align: center;
+      max-width: 100%;
+      max-height: 100%;
+      width: 100%;
+      height: 100%;
+      transition: 0.5s;
+    }
+  }
+
+  .navigation {
+    position: relative;
+    text-align: center;
+    bottom: 30px;
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/opacity/see-through */
+    color: white;
+    padding-top: 5px;
+
+    input[name="r"] {
+      display: none;
+    }
+
+    input[type="radio"] {
+      &:checked + label {
+        background: darken($mwlred, 10%);
+      }
+    }
+
+    label.bar {
+      position: relative;
+      display: inline-block;
+      margin: 0;
+      width: 40px;
+      height: 20px;
+      overflow: hidden;
+      background: $mwlred;
+      transition: 0.2s;
+      cursor: pointer;
+      border: 2px solid lighten($mwlred, 10%);
+
+      &:hover {
+        background: $mwlred;
+      }
+    }
+  }
+}
+.content {
+  width: 60%;
+  margin-left: 20%;
+  @include phone {
+    width: 90%;
+    margin-left: 5%;
+  }
+  .donatewrapper {
+    .donate {
+      text-align: center;
+      padding: 1%;
+      position: relative;
+      display: block;
+      color: black;
+      font-size: 20px;
+      font-weight: bolder;
+      font-family: "montserrat";
+      text-decoration: none;
+      margin: 30px 0;
+      border: 2px solid $mwlred;
+      text-transform: uppercase;
+      overflow: hidden;
+      transition: 1s all ease;
+      &::before {
+        width: 100%;
+        height: 0%;
+        transform: translate(-50%, -50%) rotate(-45deg);
+        background: $mwlred;
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: -1;
+        transition: all 0.6s ease;
+      }
+      &:hover::before {
+        height: 2000%;
+      }
+    }
+  }
+  .overview {
+    .section {
+      margin-bottom: 30px;
+      box-shadow: 3px 3px 5px 6px #ccc;
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-bottom: 20px;
+
+      .year {
+        font-weight: bold;
+        text-align: center;
+        color: $heavyblack;
+        padding-top: 10px;
+      }
+
+      .description {
+        font-weight: 200;
+        font-size: 17px;
+        color: $lightblack;
+      }
+    }
+  }
+  ul.tab {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    border-radius: 5px;
+    li {
+      float: left;
+      padding: 0;
+      label {
+        background: white;
+        padding: 6px;
+        border: 1px solid #ccc;
+        display: inline-block;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      input[type="radio"] {
+        opacity: 0;
+        width: 1px;
+        height: 1px;
+      }
+      input[type="radio"]:checked ~ label {
+        background: red;
+        color: white;
+      }
+    }
+  }
+
+  .contact-form {
+    margin-top: 40px;
+    h1 {
+      text-align: center;
+      color: $lightblack;
+    }
+    width: 100%;
+    padding: 0 10px;
+    overflow: hidden;
+    .contact-form-text {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      margin: 16px 0;
+      border: 0;
+      background: $lightwhite;
+      padding: 20px 40px;
+      outline: none;
+      color: $heavygray;
+      transition: 0.5s;
+      &:focus {
+        box-shadow: 0 0 10px 4px $heavygray;
+      }
+    }
+    textarea.contact-form-text {
+      resize: none;
+      height: 120px;
+      width: 100%;
+    }
+    input[type="submit"] {
+      border-radius: 10px;
+      cursor: pointer;
+      &[disabled],
+      &[disabled]:hover,
+      &[disabled]:focus,
+      &[disabled]:active {
+        background: lighten($lightwhite, 3%) !important;
+        color: lighten($lightblack, 50%);
+        cursor: default;
+      }
+      &:hover {
+        background: darken($lightwhite, 10%);
+      }
+    }
+  }
+  .donate-form {
+    margin-top: 40px;
+    h1 {
+      text-align: center;
+      color: $lightblack;
+    }
+    width: 100%;
+    padding: 0 10px;
+    overflow: hidden;
+  }
+  h1 {
+    padding-top: 50px;
+    text-align: center;
+  }
+}

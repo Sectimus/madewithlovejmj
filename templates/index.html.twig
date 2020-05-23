@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %} {% block title %}Home{% endblock title %} {%
+block content %}
+<div class="slidershow">
+  <div class="slides">
+    <img
+      id="caro1"
+      src="{{ asset('img/displays/20191120_181643_resized.jpg') }}"
+      alt="carousel image"
+    />
+    <img
+      id="caro2"
+      src="{{ asset('img/displays/1.jpg') }}"
+      alt="carousel image"
+    />
+    <img
+      id="caro3"
+      src="{{ asset('img/displays/1.jpg') }}"
+      alt="carousel image"
+    />
+    <img
+      id="caro4"
+      src="{{ asset('img/displays/1.jpg') }}"
+      alt="carousel image"
+    />
+  </div>
+  <div class="navigation">
+    <input type="radio" name="r" id="r1" checked />
+    <label for="r1" class="bar"></label>
+    <input type="radio" name="r" id="r2" />
+    <label for="r2" class="bar"></label>
+    <input type="radio" name="r" id="r3" />
+    <label for="r3" class="bar"></label>
+    <input type="radio" name="r" id="r4" />
+    <label for="r4" class="bar"></label>
+  </div>
+</div>
+<div class="donatewrapper">
+  <a href="/donate" class="donate">
+    Donate
+  </a>
+</div>
+
+<div class="overview">
+  {% for post in posts %}
+  <div class="section">
+    <h1 class="year">{{ post.title }}</h1>
+    <p class="description">{{ post.content }}</p>
+  </div>
+  {% endfor %}
+</div>
+{% endblock content %}

@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <style>
+      body {
+        background-color: #f3f3f3;
+        margin: 0px;
+      }
+      body * {
+        font-family: Helvetica, Arial, sans-serif;
+        font-weight: normal;
+      }
+      .wrapper {
+        background-color: white;
+        border-style: solid;
+
+        border-color: #e42329;
+        border-width: 2px;
+        width: 100%;
+      }
+      .container {
+        width: 580px;
+      }
+      .container > * {
+        width: 580px;
+      }
+      .content {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+      .content > * {
+        width: 100%;
+      }
+      .text-right {
+        text-align: right;
+      }
+      table.row {
+        width: 100%;
+      }
+      hr {
+        border: 0;
+        height: 1px;
+        margin: 0px;
+        background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0),
+          rgba(0, 0, 0, 0.75),
+          rgba(0, 0, 0, 0)
+        );
+      }
+      p,
+      h1 {
+        margin: 0px;
+      }
+      p.lead {
+        font-size: 20px;
+        line-height: 1.6;
+      }
+      .message {
+        background-color: #feefef;
+        border: black;
+        border-width: 1px;
+        border-style: solid;
+        padding: 10px;
+        border-radius: 5px;
+      }
+      a {
+        color: #e42329;
+      }
+    </style>
+  </head>
+
+  <body>
+    <table align="center" class="container">
+      <tbody>
+        <tr>
+          <td>
+            <table align="center" class="wrapper">
+              <tbody>
+                <tr id="header">
+                  <td>
+                    <table align="center" class="row">
+                      <tbody>
+                        <tr>
+                          <td valign="middle">
+                            <!--TODO replace with fully qualified name-->
+                            <img
+                              src="https://i.ibb.co/Lx8kV3G/branding-small.png"
+                              alt="Made With Love Logo"
+                            />
+                          </td>
+                          <td valign="middle">
+                            <p class="text-right">Made With Love (JMJ)</p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+                <tr id="spacer">
+                  <td><hr /></td>
+                </tr>
+                <tr id="content">
+                  <td class="content">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <table class="contact">
+                              <tbody>
+                                <tr>
+                                  <th align="left">Name:</th>
+                                  <td>{{name}}</td>
+                                </tr>
+                                <tr>
+                                  <th align="left">Email:</th>
+                                  <td>{{email}}</td>
+                                </tr>
+                                <tr>
+                                  <th align="left">Telephone:</th>
+                                  <td>{{phone}}</td>
+                                </tr>
+                                <tr>
+                                  <th align="left">Sent:</th>
+                                  <td>{{date}}</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="message">
+                            <p>{{message}}</p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table align="center">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--TODO add social media links-->
+                    <a href="twitter.com">Twitter</a>
+                  </td>
+                  <td>
+                    -
+                  </td>
+                  <td>
+                    <!--TODO add social media links-->
+                    <a href="facebook.com">Facebook</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

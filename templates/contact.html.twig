@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %} {% block title %}Contact Us{% endblock title %}
+{% block content %}
+<form class="contact-form" action="" id="contactform" method="post">
+  <h1>Contact Us</h1>
+  <p><small>* required</small></p>
+  <input
+    name="name"
+    type="text"
+    class="contact-form-text"
+    placeholder="Your name*"
+    required
+  />
+  <input
+    name="email"
+    type="email"
+    class="contact-form-text"
+    placeholder="Your email*"
+    required
+  />
+  <input
+    name="phone"
+    type="tel"
+    class="contact-form-text"
+    placeholder="Your phone number"
+  />
+  <textarea
+    class="contact-form-text"
+    name="message"
+    cols="30"
+    rows="10"
+    placeholder="Your message*"
+    required
+  ></textarea>
+  <div style="text-align: center;">
+    <div
+      id="captcha"
+      class="g-recaptcha"
+      data-callback="captchaCompleteCallback"
+      data-expired-callback="captchaExpiredCallback"
+      data-sitekey="6LcJZ9MUAAAAAPYzh-0gvNcn_rN2lcj0FGZmYdcC"
+      style="display: inline-block;"
+    ></div>
+  </div>
+  <input
+    id="submit"
+    type="submit"
+    class="contact-form-text"
+    value="Send"
+    disabled
+  />
+</form>
+
+<h1 id="thanks" style="display: none;">
+  Thanks! <br />
+  We will be in contact soon
+</h1>
+{% endblock content %}
