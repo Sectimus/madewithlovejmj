@@ -19,7 +19,7 @@ class ContactController extends AbstractController{
      * condition="context.getMethod() in ['GET']"
      * )
      */
-    public function contact(){
+    public function index(){
         return $this->render('contact.html.twig');
     }
 

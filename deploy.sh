@@ -26,6 +26,11 @@ echo -e "\e[1;42m yarn encore production --progress (public/build) \e[0m"
 yarn encore production --progress
 #/yarn build vendor stuff
 
+#migrate db
+echo -e "\e[1;42m Enabling migrations \e[0m" 
+php bin/console doctrine:migrations:migrate --no-interaction
+#/migrate db
+
 #Reset symfony directory
 echo -e "\e[1;42m Replacing symfony directory \e[0m"
 /bin/rm -r $SYMFONY_DIR
