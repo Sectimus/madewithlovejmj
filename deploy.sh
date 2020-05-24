@@ -7,6 +7,12 @@ export REPO_DIR=/home/sjmh5evypg7s/repository
 export PUBLIC_DIR=/home/sjmh5evypg7s/public_html
 export SYMFONY_DIR=/home/sjmh5evypg7s/symfony
 #/Variables
+
+#ensure webpack encore is installed
+composer require symfony/webpack-encore-bundle
+yarn install
+#/ensure webpack encore is installed
+
 #Composer build vendor stuff
 echo -e "\e[1;42m (cd $REPO_DIR && composer install --no-dev --optimize-autoloader) \e[0m" 
 (cd $REPO_DIR && composer install --no-dev --optimize-autoloader)
@@ -17,7 +23,6 @@ echo -e "\e[1;42m (cd $REPO_DIR && composer dump-autoload --optimize --no-dev --
 echo -e "\e[1;42m yarn encore production --progress (public/build) \e[0m" 
 yarn encore production --progress
 #/yarn build vendor stuff
-
 
 #Reset symfony directory
 echo -e "\e[1;42m Replacing symfony directory \e[0m"
