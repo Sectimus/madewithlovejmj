@@ -9,7 +9,9 @@ export SYMFONY_DIR=/home/sjmh5evypg7s/symfony
 #/Variables
 
 #ensure webpack encore is installed
+echo -e "\e[1;42m composer require symfony/webpack-encore-bundle \e[0m" 
 composer require symfony/webpack-encore-bundle
+echo -e "\e[1;42m yarn install \e[0m" 
 yarn install
 #/ensure webpack encore is installed
 
@@ -39,6 +41,8 @@ echo -e "\e[1;42m Replacing line 3 in assets.yaml \e[0m"
 /bin/sed -i "s#json_manifest_path: '%kernel.project_dir%/public/build/manifest.json'#json_manifest_path: '%kernel.project_dir%/../public_html/build/manifest.json'#g" $REPO_DIR/config/packages/assets.yaml
 #/Change line 7 of index.php in the public folder
 #Copy to public folder
+echo -e "\e[1;42m Emptying contents of public_html in preperation \e[0m"
+/bin/rm -rf $PUBLIC_DIR/*
 echo -e "\e[1;42m Copying contents of public to public_html \e[0m"
 /bin/cp -a $REPO_DIR/public/. $PUBLIC_DIR
 #/Copy to public folder
