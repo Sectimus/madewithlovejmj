@@ -3,9 +3,9 @@
 #Follow https://medium.com/@runawaycoin/deploying-symfony-4-application-to-shared-hosting-with-just-ftp-access-e65d2c5e0e3d
 #Variables
 echo -e "\e[1;42m Exporting Variables REPO_DIR, PUBLIC_DIR, SYMFONY_DIR \e[0m" 
-export REPO_DIR=/home/lwr9nm71xuww/guildzone
-export PUBLIC_DIR=/home/lwr9nm71xuww/public_html
-export SYMFONY_DIR=/home/lwr9nm71xuww/symfony
+export REPO_DIR=/home/sjmh5evypg7s/repository
+export PUBLIC_DIR=/home/sjmh5evypg7s/public_html
+export SYMFONY_DIR=/home/sjmh5evypg7s/symfony
 #/Variables
 #Composer build vendor stuff
 echo -e "\e[1;42m (cd $REPO_DIR && composer install --no-dev --optimize-autoloader) \e[0m" 
@@ -13,10 +13,10 @@ echo -e "\e[1;42m (cd $REPO_DIR && composer install --no-dev --optimize-autoload
 echo -e "\e[1;42m (cd $REPO_DIR && composer dump-autoload --optimize --no-dev --classmap-authoritative) \e[0m" 
 (cd $REPO_DIR && composer dump-autoload --optimize --no-dev --classmap-authoritative)
 #/Composer build vendor stuff
-#npm build vendor stuff
+#yarn build vendor stuff
 echo -e "\e[1;42m yarn encore production --progress (public/build) \e[0m" 
 yarn encore production --progress
-#/npm build vendor stuff
+#/yarn build vendor stuff
 
 
 #Reset symfony directory
@@ -39,7 +39,6 @@ echo -e "\e[1;42m Copying contents of public to public_html \e[0m"
 #/Copy to public folder
 #Copy console tools
 echo -e "\e[1;42m Copying console tools \e[0m"
-/bin/cp -a $REPO_DIR/bin $SYMFONY_DIR
 /bin/cp -a $REPO_DIR/bin $SYMFONY_DIR
  #/Copy console tools
  #Copy symfony src thats needed for deployment
