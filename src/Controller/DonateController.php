@@ -11,7 +11,7 @@ class DonateController extends AbstractController{
 
     /**
      * This is the donation hub for made with love (jmj)
-     * @Route("/donate")
+     * @Route("/donate", methods={"GET"})
      */
     public function index(){
         return $this->render('donate.html.twig', ['paypal_hosted_button_id' => $_ENV['PAYPAL_HOSTED_BUTTON_ID']]);
