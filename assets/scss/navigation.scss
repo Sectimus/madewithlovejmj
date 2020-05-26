@@ -1,55 +1,57 @@
-.header{
-  .branding{
-    height:100%;
-    float:left;
+.header {
+  .branding {
+    height: 100%;
+    float: left;
   }
-  .logo{
+  .logo {
     line-height: 80px;
     float: left;
     text-transform: uppercase;
   }
   height: 80px;
-  background: $mwlred;
+  background: $theme;
   padding: 0 20px;
   color: #fff;
 
-  .menu{
+  .menu {
     float: right;
     line-height: 80px;
   }
-  a{
+  a {
     color: #fff;
     text-transform: uppercase;
     text-decoration: none;
     padding: 0 10px;
     transition: 0.4s;
-    &:hover{
-      color: lighten($mwlred, 20%) !important;
+    &:hover {
+      color: lighten($theme, 20%) !important;
     }
   }
-  .show-menu-btn{
+  .show-menu-btn {
     float: right;
-    a{
+    a {
       line-height: 80px;
     }
   }
-  #chk{
+  #chk {
     position: absolute;
     visibility: hidden;
   }
 }
-.show-menu-btn,.hide-menu-btn{
+.show-menu-btn,
+.hide-menu-btn {
   transition: 0.4s;
   font-size: 30px;
   cursor: pointer;
   display: none;
 }
 
-@include phone{
-  .show-menu-btn,.hide-menu-btn{
+@include phone {
+  .show-menu-btn,
+  .hide-menu-btn {
     display: block;
   }
-  .menu{
+  .menu {
     position: fixed;
     width: 100%;
     height: 100vh;
@@ -62,17 +64,16 @@
     transition: 0.7s;
     z-index: 1111;
   }
-  .menu a{
+  .menu a {
     display: block;
     padding: 20px;
-
   }
-  .hide-menu-btn{
+  .hide-menu-btn {
     position: absolute;
     top: 40px;
     right: 40px;
   }
-  #chk:checked ~ .menu{
+  #chk:checked ~ .menu {
     right: 0;
   }
 }

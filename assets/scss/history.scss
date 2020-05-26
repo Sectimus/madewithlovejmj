@@ -1,0 +1,96 @@
+.timeline {
+  position: relative;
+  margin: 50px auto;
+  padding: 40px 0;
+  width: 1000px;
+  box-sizing: border-box;
+  &:before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background: #c5c5c5;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    li {
+      list-style: none;
+      position: relative;
+      width: 50%;
+      padding: 20px 5%;
+      box-sizing: border-box;
+      h3 {
+        margin: 0;
+        padding: 0;
+        font-weight: 600;
+        color: $theme;
+      }
+      .time {
+        margin: 0;
+        padding: 0;
+      }
+      p {
+        margin: 10px 0 0;
+        padding: 0;
+      }
+      &:nth-child(odd) {
+        float: left;
+        text-align: right;
+        clear: both;
+        .time {
+          white-space: nowrap;
+          position: absolute;
+          top: 12px;
+          left: 105%;
+          margin: 0;
+          padding: 8px 16px;
+          background: $theme;
+          color: #fff;
+          border-radius: 18px;
+          box-shadow: 0 0 0 3px rgba($theme, 0.3);
+        }
+        &:before {
+          content: "";
+          position: absolute;
+          top: 24px;
+          right: -6px;
+          width: 10px;
+          height: 10px;
+          background: $theme;
+          border-radius: 50%;
+          box-shadow: 0 0 0 3px rgba($theme, 0.2);
+        }
+      }
+      &:nth-child(even) {
+        float: right;
+        text-align: left;
+        clear: both;
+        &:before {
+          content: "";
+          position: absolute;
+          top: 24px;
+          left: -6px;
+          width: 10px;
+          height: 10px;
+          background: $theme;
+          border-radius: 50%;
+          box-shadow: 0 0 0 3px rgba($theme, 0.2);
+        }
+        .time {
+          white-space: nowrap;
+          position: absolute;
+          top: 12px;
+          right: 105%;
+          margin: 0;
+          padding: 8px 16px;
+          background: $theme;
+          color: #fff;
+          border-radius: 18px;
+          box-shadow: 0 0 0 3px rgba($theme, 0.3);
+        }
+      }
+    }
+  }
+}
