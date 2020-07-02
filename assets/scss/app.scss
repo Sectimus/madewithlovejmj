@@ -21,6 +21,10 @@ $heavygreen: #27ae60; //media queries
   padding: 0;
   font-family: "montserrat", sans-serif;
 }
+
+body {
+  overflow-x: hidden;
+}
 @import "navigation.scss"; //LANDING PAGE
 
 .slidershow {
