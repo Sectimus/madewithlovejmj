@@ -20,18 +20,21 @@ class ContactController extends AbstractController{
      * )
      */
     public function index(){
-        return $this->render('contact.html.twig');
+        return $this->render('contact.html.twig', ['sent'=>false]);
     }
 
     /**
      * Handles the submission of contact forms
      * @Route(
      * "/contact",
-     * condition="context.getMethod() in ['POST'] and request.headers.get('Content-Type') matches ';application/json;i'"
+     * condition="context.getMethod() in ['POST'] and request.headers.get('Content-Type') matches ';application/x-www-form-urlencoded;i'"
      * )
      */
     public function contactSubmission(Request $request, \Swift_Mailer $mailer){
-        $post = json_decode($request->getContent(), true);
+        $post['name'] = $request->request->get('name');
+        $post['email'] = $request->request->get('email');
+        $post['phone'] = $request->request->get('phone');
+        $post['message'] = $request->request->get('message');
 
         //TODO ensure all params are there
 
@@ -78,6 +81,6 @@ class ContactController extends AbstractController{
         //TODO store backup in db
 
 
-        return $this->json($post);
+        return $this->render('contact.html.twig', ['sent'=>true]);
     }
 }
